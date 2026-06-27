@@ -1,276 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhin – Portfolio</title>
-    
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Lucida Sans', 'Lucida Grande', Verdana, sans-serif;
-            background-color: #f9f9f7;
-            color: #0a0a0a;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-            background-color: rgba(170, 171, 172, 0.184);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav h1 {
-            font-size: clamp(16px, 3vw, 20px);
-            letter-spacing: 3px;
-        }
-        nav ul {
-            display: flex;
-            gap: clamp(14px, 3vw, 30px);
-            list-style: none;
-        }
-        nav ul li {
-            font-size: clamp(12px, 2vw, 14px);
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        h2 {
-            font-family: 'Lucida Sans', Verdana, sans-serif;
-            letter-spacing: 2px;
-            color: rgb(0, 0, 0);
-        }
-
-        img {
-            width: clamp(140px, 28vw, 350px);
-            border-radius: 10%;
-            display: block;
-        }
-
-        p {
-            color: rgb(7, 6, 6);
-            padding-top: 10px;
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: clamp(40px, 8vw, 80px) clamp(24px, 8vw, 100px);
-            gap: 40px;
-        }
-        .hero-text {
-            flex: 1;
-            min-width: 0;
-        }
-        .hero-text h2 {
-            font-size: clamp(32px, 6vw, 60px);
-            margin-bottom: 16px;
-        }
-        .hero-text .name-title {
-            font-size: clamp(16px, 2.5vw, 22px);
-            font-weight: bold;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        .hero-text .bio {
-            font-size: clamp(14px, 1.8vw, 17px);
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 28px;
-            padding-top: 10px;
-        }
-        .hero-text button {
-            color: black;
-            font-size: clamp(13px, 1.6vw, 16px);
-            border-radius: 10px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            height: 42px;
-            width: clamp(160px, 30vw, 220px);
-            border: 1.5px solid #000;
-            background: transparent;
-            cursor: pointer;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .hero-text button:hover {
-            background: #000;
-            color: #fff;
-        }
-        .hero-image {
-            flex-shrink: 0;
-        }
-
-        .skills-section {
-            padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 100px);
-        }
-        .skills-section h2 {
-            text-align: center;
-            font-size: clamp(22px, 4vw, 32px);
-            margin-bottom: 40px;
-        }
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .skill-box {
-            width: clamp(130px, 20vw, 180px);
-            height: clamp(80px, 12vw, 120px);
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: clamp(14px, 2vw, 20px);
-            font-weight: bold;
-            transition: 0.3s;
-            color: #000;
-        }
-        .skill-box:hover {
-            transform: translateY(-5px);
-            background-color: #e8e8e8;
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-section {
-            padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 100px);
-            background-color: #f4f4f4;
-        }
-        .contact-section h2 {
-            text-align: center;
-            font-size: clamp(22px, 4vw, 32px);
-            margin-bottom: 40px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 640px) {
-            nav { padding: 14px 20px; }
-
-            .hero {
-                flex-direction: column-reverse;
-                align-items: center;
-                padding: 36px 20px;
-                gap: 24px;
-                text-align: center;
-            }
-            .hero-text .bio { text-align: left; }
-            .hero-text button { width: 100%; max-width: 280px; }
-
-            .skill-box {
-            width: calc(50% - 12px);
-            height: 70px;
-            font-size: 13px;
-           }
-        }
-
-        /* TABLET */
-        @media (min-width: 641px) and (max-width: 900px) {
-            .hero {
-                flex-direction: column-reverse;
-                align-items: center;
-                text-align: center;
-                padding: 48px 40px;
-            }
-        }
-    </style>
+    <meta name="description"
+        content="Argentina National Football Team Fan Site - La Albiceleste info, fixtures, team gallery, and historical details.">
+    <title>Argentina National Football Team | Fan Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syncopate:wght@700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body id="top">
 
-    <nav>
-        <h1>PORTFOLIO</h1>
-        <ul>
-            <li><a href="#top" style="text-decoration:none; color:inherit;"><b>HOME</b></a></li>
-            <li><a href="#contact" style="text-decoration:none; color:inherit;"><b>CONTACT</b></a></li>
-            <li><a href="#skills" style="text-decoration:none; color:inherit;"><b>ABOUT</b></a></li>
-        </ul>
-    </nav>
+<body>
 
-    <div class="hero">
-        <div class="hero-text">
-            <h2>HI!</h2>
-            <p class="name-title"><b>I am ABHIN,<br>UI/UX Designer & BCA Student</b></p>
-            <p class="bio">
-                Passionate about designing intuitive digital experiences
-                and creating user-friendly interfaces. Currently pursuing
-                BCA and actively seeking UI/UX Design and Software Development
-                internship opportunities to expand my skills and contribute to
-                innovative projects.
-            </p>
-            <button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">
-                <b>MORE DETAILS</b>
-            </button>
+    <!-- ═══════════════════════════════════════════════════════════
+       PERSISTENT HEADER — Visible on ALL screens
+       ═══════════════════════════════════════════════════════════ -->
+    <header class="header">
+        <!-- Logo / Brand — clicking returns to HOME screen -->
+        <div class="logo-badge" id="logo-badge" data-screen="home" role="button" tabindex="0" aria-label="Go to Home">
+            <img src="logo.png" alt="AFA Logo" class="crest-img">
+            <span class="divider">|</span>
+            <span class="logo-text">ARGENTINA</span>
         </div>
-        <div class="hero-image">
-            <img src="proff.png" alt="Abhin's profile photo">
+
+        <!-- Primary Navigation — each button shows a separate screen -->
+        <nav class="nav-bar" aria-label="Main Navigation">
+            <a href="manager.html" class="nav-link" id="nav-manager-btn">MANAGER</a>
+            <button class="nav-link" id="nav-gallery-btn" data-scroll="gallery-section">GALLERY</button>
+            <button class="nav-link" id="nav-kits-btn" data-screen="kits">KITS</button>
+        </nav>
+
+        <!-- Right flag button -->
+        <button class="flag-button" aria-label="Argentina Flag" data-screen="home">
+            <img src="flag.jpeg" alt="Argentina Flag" class="round-flag-img">
+        </button>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════
+       SCREENS CONTAINER — only ONE .screen.active visible at a time
+       ═══════════════════════════════════════════════════════════ -->
+    <div id="screens-container">
+
+        <!-- ╔══════════════════════════════════════╗
+         ║  SCREEN: HOME  (Desktop – 1)         ║
+         ╚══════════════════════════════════════╝ -->
+        <div class="screen active" id="screen-home">
+            <main class="main-content">
+
+                <!-- ─── Hero / Info Section ─── -->
+                <section class="hero-section" aria-label="About Argentina">
+                    <div class="hero-container">
+
+                        <!-- Left: Team bio card -->
+                        <div class="hero-left">
+                            <div class="info-card glass-card">
+                                <p class="intro-text">
+                                    The Argentina national football team, popularly known as <strong>La
+                                        Albiceleste</strong>
+                                    ("The White and Sky Blue"), represents Argentina in international men's football.
+                                    Managed by the Argentine Football Association, the team is one of the most
+                                    successful
+                                    and respected national sides in football history.
+                                </p>
+                                <ul class="info-list">
+                                    <li>
+                                        <span class="list-icon">
+                                            <svg viewBox="0 0 24 24" fill="#E5A93B" aria-hidden="true">
+                                                <path
+                                                    d="M19 2H5C3.9 2 3 2.9 3 4V7C3 9.76 4.97 12.06 7.55 12.54C8.43 14.28 10.07 15.53 12 15.82V19H9C8.45 19 8 19.45 8 20C8 20.55 8.45 21 9 21H15C15.55 21 16 20.55 16 20C16 19.45 15.55 19 15 19H12V15.82C13.93 15.53 15.57 14.28 16.45 12.54C19.03 12.06 21 9.76 21 7V4C21 2.9 20.1 2 19 2ZM5 7V4H7V8.1C5.8 7.8 5 7 5 7ZM19 7C19 7 18.2 7.8 17 8.1V4H19V7Z" />
+                                            </svg>
+                                        </span>
+                                        <div><strong>World Cup Titles:</strong> 3 (1978, 1986, 2022)</div>
+                                    </li>
+                                    <li>
+                                        <span class="list-icon">
+                                            <svg viewBox="0 0 24 24" fill="#E5A93B" aria-hidden="true">
+                                                <path
+                                                    d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20ZM12 6L13.7 9.8 17.8 10.2 14.7 13 15.6 17 12 14.9 8.4 17 9.3 13 6.2 10.2 10.3 9.8 12 6Z" />
+                                            </svg>
+                                        </span>
+                                        <div><strong>Copa América titles:</strong> 16 (Record holder as of 2024)</div>
+                                    </li>
+                                    <li>
+                                        <span class="list-icon">
+                                            <svg viewBox="0 0 24 24" fill="#E5A93B" aria-hidden="true">
+                                                <path
+                                                    d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
+                                            </svg>
+                                        </span>
+                                        <div><strong>Current captain:</strong> Lionel Messi</div>
+                                    </li>
+                                    <li>
+                                        <span class="list-icon">
+                                            <svg viewBox="0 0 24 24" fill="#E5A93B" aria-hidden="true">
+                                                <path
+                                                    d="M12 2C6.48 2 2 5.58 2 10V14C2 18.42 6.48 22 12 22S22 18.42 22 14V10C22 5.58 17.52 2 12 2ZM20 12C20 13.1 19.38 14.28 18.25 15.34C17.15 16.36 15.64 17.17 14 17.58V15.5C14 14.67 13.33 14 12.5 14H11.5C10.67 14 10 14.67 10 15.5V17.58C8.36 17.17 6.85 16.36 5.75 15.34C4.62 14.28 4 13.1 4 12V10C4 8.9 4.62 7.72 5.75 6.66C6.85 5.64 8.36 4.83 10 4.42V6.5C10 7.33 10.67 8 11.5 8H12.5C13.33 8 14 7.33 14 6.5V4.42C15.64 4.83 17.15 5.64 18.25 6.66C19.38 7.72 20 8.9 20 10V12Z" />
+                                            </svg>
+                                        </span>
+                                        <div><strong>Home stadium:</strong> Estadio Monumental</div>
+                                    </li>
+                                    <li>
+                                        <span class="list-icon">
+                                            <svg viewBox="0 0 24 24" fill="#E5A93B" aria-hidden="true">
+                                                <path
+                                                    d="M6 2C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.9 19.1 2 18 2H6ZM12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4ZM15 11H9V10H15V11ZM17 14H7V12.5L12 10.5L17 12.5V14Z" />
+                                            </svg>
+                                        </span>
+                                        <div><strong>Head coach:</strong> Lionel Scaloni</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right: Auth buttons + trophy -->
+                        <div class="hero-right">
+                            <div class="auth-buttons">
+                                <button class="btn btn-primary" id="login-btn">LOGIN</button>
+                                <button class="btn btn-secondary" id="join-btn">
+                                    JOIN
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 9.91 4.8 8.01 6.09 6.59L17.41 17.91C15.99 19.2 14.09 20 12 20ZM17.91 17.41L6.59 6.09C8.01 4.8 9.91 4 12 4C16.41 4 20 7.59 20 12C20 14.09 19.2 15.99 17.91 17.41Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="world-cup-silhouette" aria-hidden="true">
+                                <img src="b2.png" alt="FIFA World Cup 2026 Emblem" class="world-cup-badge-img">
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ─── Group J / Matches Section ─── -->
+                <section class="group-matches-section" aria-label="Group Matches">
+                    <div class="diagonal-divider-top"></div>
+
+                    <div class="group-grid">
+
+                        <!-- Left: Group badge card -->
+                        <div class="group-graphics-card">
+                            <div class="graphics-slant"></div>
+                            <div class="graphics-content">
+                                <div class="graphics-header">
+                                    <img src="logo.png" alt="AFA Logo" class="mini-crest-img">
+                                    <img src="b2.png" alt="World Cup Trophy" class="mini-trophy-img">
+                                </div>
+                                <div class="group-title">GROUP J</div>
+                                <div class="fifa-subtext">FIFA</div>
+                            </div>
+                        </div>
+
+                        <!-- Centre: Glowing flag orb -->
+                        <div class="center-flag-container">
+                            <div class="glowing-orb"></div>
+                            <img src="flag.jpeg" alt="Argentina Flag" class="floating-flag-img">
+                        </div>
+
+                        <!-- Right: Matches card -->
+                        <div class="matches-card glass-card">
+                            <div class="matches-container">
+
+                                <!-- Match 1: Argentina vs Algeria -->
+                                <div class="match-row">
+                                    <div class="match-team match-team-left">
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="argFlag">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#argFlag)">
+                                                <rect x="0" y="0" width="100" height="33.3" fill="#75AADB" />
+                                                <rect x="0" y="33.3" width="100" height="33.4" fill="#FFFFFF" />
+                                                <rect x="0" y="66.7" width="100" height="33.3" fill="#75AADB" />
+                                                <circle cx="50" cy="50" r="7" fill="#E5A93B" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                        <span class="team-name">ARGENTINA</span>
+                                    </div>
+                                    <div class="match-details">
+                                        <div class="match-date">JUNE 17, WEDNESDAY</div>
+                                        <div class="match-vs">VS</div>
+                                        <div class="match-time">06:30 AM IST</div>
+                                    </div>
+                                    <div class="match-team match-team-right">
+                                        <span class="team-name">ALGERIA</span>
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="dzaFlag">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#dzaFlag)">
+                                                <rect x="0" y="0" width="50" height="100" fill="#006633" />
+                                                <rect x="50" y="0" width="50" height="100" fill="#FFFFFF" />
+                                                <path d="M57,40 A14,14 0 1,0 57,60 A11,11 0 1,1 59,57 Z"
+                                                    fill="#D21034" />
+                                                <polygon
+                                                    points="59,45 61,51 67,51 62,54 64,60 59,56 54,60 56,54 51,51 57,51"
+                                                    fill="#D21034" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Match 2: Argentina vs Austria -->
+                                <div class="match-row">
+                                    <div class="match-team match-team-left">
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="argFlag2">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#argFlag2)">
+                                                <rect x="0" y="0" width="100" height="33.3" fill="#75AADB" />
+                                                <rect x="0" y="33.3" width="100" height="33.4" fill="#FFFFFF" />
+                                                <rect x="0" y="66.7" width="100" height="33.3" fill="#75AADB" />
+                                                <circle cx="50" cy="50" r="7" fill="#E5A93B" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                        <span class="team-name">ARGENTINA</span>
+                                    </div>
+                                    <div class="match-details">
+                                        <div class="match-date">JUNE 22, MONDAY</div>
+                                        <div class="match-vs">VS</div>
+                                        <div class="match-time">10:30 PM IST</div>
+                                    </div>
+                                    <div class="match-team match-team-right">
+                                        <span class="team-name">AUSTRIA</span>
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="autFlag">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#autFlag)">
+                                                <rect x="0" y="0" width="100" height="33.3" fill="#ED2939" />
+                                                <rect x="0" y="33.3" width="100" height="33.4" fill="#FFFFFF" />
+                                                <rect x="0" y="66.7" width="100" height="33.3" fill="#ED2939" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Match 3: Jordan vs Argentina -->
+                                <div class="match-row">
+                                    <div class="match-team match-team-left">
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="jorFlag">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#jorFlag)">
+                                                <rect x="0" y="0" width="100" height="33.3" fill="#000000" />
+                                                <rect x="0" y="33.3" width="100" height="33.4" fill="#FFFFFF" />
+                                                <rect x="0" y="66.7" width="100" height="33.3" fill="#007A3D" />
+                                                <polygon points="0,0 50,50 0,100" fill="#E01A22" />
+                                                <polygon
+                                                    points="18,44 20,48 24,47 21,50 23,54 18,51 13,54 15,50 12,47 16,48"
+                                                    fill="#FFFFFF" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                        <span class="team-name">JORDAN</span>
+                                    </div>
+                                    <div class="match-details">
+                                        <div class="match-date">JUNE 29, 2026, SUNDAY</div>
+                                        <div class="match-vs">VS</div>
+                                        <div class="match-time">07:30 AM IST</div>
+                                    </div>
+                                    <div class="match-team match-team-right">
+                                        <span class="team-name">ARGENTINA</span>
+                                        <svg class="match-flag" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <clipPath id="argFlag3">
+                                                <circle cx="50" cy="50" r="44" />
+                                            </clipPath>
+                                            <g clip-path="url(#argFlag3)">
+                                                <rect x="0" y="0" width="100" height="33.3" fill="#75AADB" />
+                                                <rect x="0" y="33.3" width="100" height="33.4" fill="#FFFFFF" />
+                                                <rect x="0" y="66.7" width="100" height="33.3" fill="#75AADB" />
+                                                <circle cx="50" cy="50" r="7" fill="#E5A93B" />
+                                            </g>
+                                            <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.2)"
+                                                stroke-width="2" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- /matches-card -->
+
+                    </div><!-- /group-grid -->
+                </section>
+
+                <!-- ─── Players / Filter Tabs Section ─── -->
+                <section class="filters-section" aria-label="Squad Filters">
+                    <div class="slant-banner"></div>
+
+                    <div class="filters-layout">
+                        <div class="filters-container">
+                            <a href="players.html" class="filter-btn active" id="btn-players">PLAYERS</a>
+                            <a href="showcase.html" class="filter-btn" id="btn-legends">ICONIC LEGENDS</a>
+                            <a href="history.html" class="filter-btn" id="btn-history">HISTORY</a>
+                        </div>
+
+                        <div class="player-showcase">
+                            <div class="player-shadow"></div>
+                            <img src="b1.png"
+                                alt="Lionel Messi in action" class="player-img" loading="lazy">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ─── Gallery Section ─── -->
+                <section class="gallery-section" id="gallery-section" aria-label="Photo Gallery">
+                    <div class="diagonal-divider-gallery"></div>
+
+                    <h2 class="gallery-title">GALLERY</h2>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-item item-1">
+                            <img src="gallery1.jpeg"
+                                alt="Finalissima trophy celebration" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">FINALISSIMA CHAMPIONS</span></div>
+                        </div>
+                        <div class="gallery-item item-2">
+                            <img src="gallery2.jpeg"
+                                alt="World Cup victory pitch celebration" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">WORLD CUP VICTORY</span></div>
+                        </div>
+                        <div class="gallery-item item-3">
+                            <img src="gallery3.jpeg"
+                                alt="Lionel Messi victory smile" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">THE CAPTAIN'S JOY</span></div>
+                        </div>
+                        <div class="gallery-item item-4">
+                            <img src="gallery4.jpeg"
+                                alt="Team huddle from behind" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">ONE TEAM ONE SPIRIT</span></div>
+                        </div>
+                        <div class="gallery-item item-5">
+                            <img src="gallery5.jpeg"
+                                alt="Álvarez, Messi, Lautaro walking together" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">BROTHERHOOD &amp; GLORY</span></div>
+                        </div>
+                        <div class="gallery-item item-6">
+                            <img src="gallery6.jpeg"
+                                alt="Emiliano Martinez shushing gesture" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">MARTÍNEZ DEFENSE</span></div>
+                        </div>
+                        <div class="gallery-item item-7">
+                            <img src="gallery7.jpeg"
+                                alt="Di María and Messi with World Cup trophy" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">LEGENDARY DUO</span></div>
+                        </div>
+                        <div class="gallery-item item-8">
+                            <img src="gallery8.jpeg"
+                                alt="Lionel Messi dribbling in match action" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">DRIBBLE SKILLS</span></div>
+                        </div>
+                        <div class="gallery-item item-9">
+                            <img src="gallery9.jpeg"
+                                alt="Messi lifted on shoulders with trophy" class="gallery-img" loading="lazy">
+                            <div class="img-overlay"><span class="overlay-title">LIFTING THE TROPHY</span></div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Footer (part of HOME screen) -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-left">
+                        <h3 class="footer-brand">Argentina Fans Website</h3>
+                        <a href="mailto:srvmvsnbg@gmail.com" class="footer-mail">
+                            <svg class="mail-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
+                            </svg>
+                            srvmvsnbg@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="footer-center">
+                        <p class="copyright">&copy; 2026 Argentina Fan Site | All Rights Reserved</p>
+                    </div>
+
+                    <div class="footer-right">
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn" class="social-circle">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.53.13-.72a1.11 1.11 0 0 1 1-.72c.62 0 1 .46 1 1.13v5.18h2.8M7.12 9.06a1.44 1.44 0 1 0-1.44-1.44 1.44 1.44 0 0 0 1.44 1.44m1.4 9.44V10.1H5.72v8.4h2.8Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Facebook" class="social-circle">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75Z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram" class="social-circle">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2m-.2 2C5.6 4 4 5.6 4 7.6v8.8C4 18.4 5.6 20 7.6 20h8.8c2 0 3.6-1.6 3.6-3.6V7.6c0-2-1.6-3.6-3.6-3.6H7.6m8.9 2.2c.7 0 1.3.6 1.3 1.3c0 .7-.6 1.3-1.3 1.3c-.7 0-1.3-.6-1.3-1.3c0-.7.6-1.3 1.3-1.3M12 7c2.8 0 5 2.2 5 5s-2.2 5-5 5s-5-2.2-5-5s2.2-5 5-5m0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3s3-1.3 3-3s-1.3-3-3-3Z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <button class="footer-home" id="footer-home-btn" data-screen="home">HOME</button>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </div>
+        <!-- ╚══════ END HOME SCREEN ══════╝ -->
 
-    <div class="skills-section" id="skills">
-        <h2><b>My Skills</b></h2>
-        <div class="skills-container">
-            <div class="skill-box">HTML</div>
-            <div class="skill-box">CSS</div>
-            <div class="skill-box">Javascript</div>
-            <div class="skill-box">UI/UX Design</div>
-            <div class="skill-box">Figma</div>
-            <div class="skill-box">Python</div>
-            <div class="skill-box">MongoDB</div>
-            <div class="skill-box">C programming</div>
+
+        <!-- ╔══════════════════════════════════════╗
+         ║  SCREEN: MANAGER                     ║
+         ╚══════════════════════════════════════╝ -->
+        <div class="screen" id="screen-manager">
+            <div class="placeholder-screen">
+                <div class="placeholder-inner">
+                    <div class="placeholder-badge" aria-hidden="true">
+                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="50,5 55,20 70,20 58,30 62,45 50,35 38,45 42,30 30,20 45,20"
+                                fill="#E5A93B" />
+                            <polygon points="25,15 30,30 45,30 33,40 37,55 25,45 13,55 17,40 5,30 20,30"
+                                fill="#E5A93B" />
+                            <polygon points="75,15 80,30 95,30 83,40 87,55 75,45 63,55 67,40 55,30 70,30"
+                                fill="#E5A93B" />
+                            <path d="M10,40 Q10,35 15,35 L85,35 Q90,35 90,40 L90,80 Q90,110 50,118 Q10,110 10,80 Z"
+                                fill="#0B2545" stroke="#E5A93B" stroke-width="4" />
+                            <path d="M25,35 L25,92 C32,103 42,109 50,114 C58,109 68,103 75,92 L75,35 Z"
+                                fill="#FFFFFF" />
+                            <path d="M38,35 L38,103 C42,106 46,108 50,109 C54,108 58,106 62,103 L62,35 Z"
+                                fill="#75AADB" />
+                            <path d="M50,45 L40,85 M50,45 L60,85 M43,72 L57,72" stroke="#E5A93B" stroke-width="4" />
+                            <path d="M30,85 H70" stroke="#E5A93B" stroke-width="4" />
+                        </svg>
+                    </div>
+                    <h1 class="placeholder-title">MANAGER</h1>
+                    <p class="placeholder-subtitle">Screen content coming soon</p>
+                    <div class="placeholder-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="contact-section" id="contact">
-        <h2><b>Contact Me</b></h2>
-        <div class="skills-container">
 
-            <a href="tel:+918281203769" style="text-decoration:none;">
-                <div class="skill-box" style="flex-direction:column; gap:8px;">
-                    <span style="font-size:28px;">📞</span>
-                    <span style="font-size:13px;"></span>
+        <!-- ╔══════════════════════════════════════╗
+         ║  SCREEN: KITS                        ║
+         ╚══════════════════════════════════════╝ -->
+        <div class="screen" id="screen-kits">
+            <div class="kits-container">
+                <h1 class="kits-title">KITS</h1>
+
+                <div class="kits-grid">
+                    <!-- Messi Away Portrait (1st image) -->
+                    <div class="kit-item player-portrait home-player">
+                        <img src="je4.png"
+                            alt="Messi in Away Kit" class="portrait-img" loading="lazy">
+                    </div>
+
+                    <!-- Messi Home Portrait (2nd image) -->
+                    <div class="kit-item player-portrait home-player">
+                        <img src="je1.jpeg"
+                            alt="Messi in Home Kit" class="portrait-img" loading="lazy">
+                    </div>
+
+                    <!-- Home Jersey Card (3rd image) -->
+                    <div class="kit-item player-portrait home-player">
+                        <img src="je2.jpeg" alt="Argentina Home Jersey" class="portrait-img" loading="lazy">
+                    </div>
+
+                    <!-- Away Jersey Card (4th image) -->
+                    <div class="kit-item player-portrait home-player">
+                        <img src="je3.png" alt="Argentina Away Jersey" class="portrait-img" loading="lazy">
+                    </div>
+
+                    <!-- Kit Labels -->
+                    <div class="kit-label-card away-label-left"><span class="kit-label">AWAY</span></div>
+                    <div class="kit-label-card home-label-center"><span class="kit-label">HOME</span></div>
+                    <div class="kit-label-card away-label-right"><span class="kit-label">AWAY</span></div>
                 </div>
-            </a>
-
-            <a href="mailto:abhinillikatil@gmail.com" style="text-decoration:none;">
-                <div class="skill-box" style="flex-direction:column; gap:8px;">
-                    <span style="font-size:28px;">✉️</span>
-                    <span style="font-size:13px;"></span>
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/abhin-i-p-13757a359/" target="_blank" style="text-decoration:none;">
-                <div class="skill-box" style="flex-direction:column; gap:8px;">
-                    <span style="font-size:28px;">💼</span>
-                    <span style="font-size:13px;"></span>
-                </div>
-            </a>
-
-            <a href="https://github.com/ABHiN404" target="_blank" style="text-decoration:none;">
-                <div class="skill-box" style="flex-direction:column; gap:8px;">
-                    <span style="font-size:28px;">🐙</span>
-                    <span style="font-size:13px;"></span>
-                </div>
-            </a>
-
-            <a href="https://www.instagram.com/_abhinnn._?igsh=NjZzc3doM2gwaGVh" target="_blank" style="text-decoration:none;">
-                <div class="skill-box" style="flex-direction:column; gap:8px;">
-                    <span style="font-size:28px;">📸</span>
-                    <span style="font-size:13px;"></span>
-                </div>
-            </a>
-
+            </div>
         </div>
-    </div>
+        <!-- ╚══════ END KITS SCREEN ══════╝ -->
+
+    </div><!-- /#screens-container -->
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+       JAVASCRIPT — Screen Switching & Filter Tabs
+       ═══════════════════════════════════════════════════════════ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const allScreens = document.querySelectorAll('.screen');
+            const screenBtns = document.querySelectorAll('[data-screen]');   // switch screens
+            const scrollBtns = document.querySelectorAll('[data-scroll]');   // scroll-to on home
+
+            // ── Show a screen by ID ───────────────────────────────────
+            function showScreen(screenId) {
+                allScreens.forEach(s => s.classList.remove('active'));
+                const target = document.getElementById('screen-' + screenId);
+                if (target) target.classList.add('active');
+
+                // Highlight matching nav buttons
+                screenBtns.forEach(el => el.classList.remove('nav-active'));
+                scrollBtns.forEach(el => el.classList.remove('nav-active'));
+                screenBtns.forEach(el => {
+                    if (el.dataset.screen === screenId) el.classList.add('nav-active');
+                });
+
+                // Scroll back to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Attach to every [data-screen] element
+            screenBtns.forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showScreen(el.dataset.screen);
+                });
+                // Keyboard support for non-button roles
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        showScreen(el.dataset.screen);
+                    }
+                });
+            });
+
+            // ── Attach to every [data-scroll] element (e.g., GALLERY) ───
+            scrollBtns.forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showScreen('home'); // Ensure home screen is active
+                    const targetId = el.dataset.scroll;
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ── Filter-tab switching (Players / Legends / History) ────
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+        });
+    </script>
 
 </body>
+
 </html>

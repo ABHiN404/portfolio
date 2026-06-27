@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhin – Portfolio</title>
+    
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Grande', Verdana, sans-serif;
+            background-color: #f9f9f7;
+            color: #0a0a0a;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background-color: rgba(170, 171, 172, 0.184);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav h1 {
+            font-size: clamp(16px, 3vw, 20px);
+            letter-spacing: 3px;
+        }
+        nav ul {
+            display: flex;
+            gap: clamp(14px, 3vw, 30px);
+            list-style: none;
+        }
+        nav ul li {
+            font-size: clamp(12px, 2vw, 14px);
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-family: 'Lucida Sans', Verdana, sans-serif;
+            letter-spacing: 2px;
+            color: rgb(0, 0, 0);
+        }
+
+        img {
+            width: clamp(140px, 28vw, 350px);
+            border-radius: 10%;
+            display: block;
+        }
+
+        p {
+            color: rgb(7, 6, 6);
+            padding-top: 10px;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(40px, 8vw, 80px) clamp(24px, 8vw, 100px);
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .hero-text h2 {
+            font-size: clamp(32px, 6vw, 60px);
+            margin-bottom: 16px;
+        }
+        .hero-text .name-title {
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: bold;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .hero-text .bio {
+            font-size: clamp(14px, 1.8vw, 17px);
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 28px;
+            padding-top: 10px;
+        }
+        .hero-text button {
+            color: black;
+            font-size: clamp(13px, 1.6vw, 16px);
+            border-radius: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height: 42px;
+            width: clamp(160px, 30vw, 220px);
+            border: 1.5px solid #000;
+            background: transparent;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .hero-text button:hover {
+            background: #000;
+            color: #fff;
+        }
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .skills-section {
+            padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 100px);
+        }
+        .skills-section h2 {
+            text-align: center;
+            font-size: clamp(22px, 4vw, 32px);
+            margin-bottom: 40px;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .skill-box {
+            width: clamp(130px, 20vw, 180px);
+            height: clamp(80px, 12vw, 120px);
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(14px, 2vw, 20px);
+            font-weight: bold;
+            transition: 0.3s;
+            color: #000;
+        }
+        .skill-box:hover {
+            transform: translateY(-5px);
+            background-color: #e8e8e8;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section {
+            padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 100px);
+            background-color: #f4f4f4;
+        }
+        .contact-section h2 {
+            text-align: center;
+            font-size: clamp(22px, 4vw, 32px);
+            margin-bottom: 40px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 640px) {
+            nav { padding: 14px 20px; }
+
+            .hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                padding: 36px 20px;
+                gap: 24px;
+                text-align: center;
+            }
+            .hero-text .bio { text-align: left; }
+            .hero-text button { width: 100%; max-width: 280px; }
+
+            .skill-box {
+            width: calc(50% - 12px);
+            height: 70px;
+            font-size: 13px;
+           }
+        }
+
+        /* TABLET */
+        @media (min-width: 641px) and (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                padding: 48px 40px;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <nav>
+        <h1>PORTFOLIO</h1>
+        <ul>
+            <li><a href="#top" style="text-decoration:none; color:inherit;"><b>HOME</b></a></li>
+            <li><a href="#contact" style="text-decoration:none; color:inherit;"><b>CONTACT</b></a></li>
+            <li><a href="#skills" style="text-decoration:none; color:inherit;"><b>ABOUT</b></a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h2>HI!</h2>
+            <p class="name-title"><b>I am ABHIN,<br>UI/UX Designer & BCA Student</b></p>
+            <p class="bio">
+                Passionate about designing intuitive digital experiences
+                and creating user-friendly interfaces. Currently pursuing
+                BCA and actively seeking UI/UX Design and Software Development
+                internship opportunities to expand my skills and contribute to
+                innovative projects.
+            </p>
+            <button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">
+                <b>MORE DETAILS</b>
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="proff.png" alt="Abhin's profile photo">
+        </div>
+    </div>
+
+    <div class="skills-section" id="skills">
+        <h2><b>My Skills</b></h2>
+        <div class="skills-container">
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">Javascript</div>
+            <div class="skill-box">UI/UX Design</div>
+            <div class="skill-box">Figma</div>
+            <div class="skill-box">Python</div>
+            <div class="skill-box">MongoDB</div>
+            <div class="skill-box">C programming</div>
+        </div>
+    </div>
+
+    <div class="contact-section" id="contact">
+        <h2><b>Contact Me</b></h2>
+        <div class="skills-container">
+
+            <a href="tel:+918281203769" style="text-decoration:none;">
+                <div class="skill-box" style="flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">📞</span>
+                    <span style="font-size:13px;"></span>
+                </div>
+            </a>
+
+            <a href="mailto:abhinillikatil@gmail.com" style="text-decoration:none;">
+                <div class="skill-box" style="flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">✉️</span>
+                    <span style="font-size:13px;"></span>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/abhin-i-p-13757a359/" target="_blank" style="text-decoration:none;">
+                <div class="skill-box" style="flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">💼</span>
+                    <span style="font-size:13px;"></span>
+                </div>
+            </a>
+
+            <a href="https://github.com/ABHiN404" target="_blank" style="text-decoration:none;">
+                <div class="skill-box" style="flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">🐙</span>
+                    <span style="font-size:13px;"></span>
+                </div>
+            </a>
+
+            <a href="https://www.instagram.com/_abhinnn._?igsh=NjZzc3doM2gwaGVh" target="_blank" style="text-decoration:none;">
+                <div class="skill-box" style="flex-direction:column; gap:8px;">
+                    <span style="font-size:28px;">📸</span>
+                    <span style="font-size:13px;"></span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
